@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travis Johnson | Product Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff7ed;
+            padding-top: 70px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 247, 237, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            border-bottom: 1px solid #fed7aa;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f97316;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .profile-text {
+            flex: 1;
+        }
+
+        .intro-content {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .greeting {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: #000;
+        }
+
+        .title {
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .bio {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 3rem;
+        }
+
+        .skills-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid #fed7aa;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-card {
+            text-align: center;
+            padding: 1.5rem;
+            min-width: 0;
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background-color: #f97316;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+        }
+
+        .skill-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-description {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .projects-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid #fed7aa;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(249, 115, 22, 0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            object-position: top left;
+            background-color: #f3f4f6;
+            flex-shrink: 0;
+            cursor: zoom-in;
+        }
+
+        .project-content {
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .project-title {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-date {
+            font-size: 0.875rem;
+            color: #f97316;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .modal-close:hover {
+            opacity: 0.7;
+        }
+
+        .project-image {
+            cursor: zoom-in;
+        }
+
+        .personal-projects-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid #fed7aa;
+        }
+
+        .personal-project-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 3rem;
+        }
+
+        .personal-project-header {
+            margin-bottom: 2rem;
+        }
+
+        .personal-project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .personal-project-tech {
+            font-size: 0.875rem;
+            color: #f97316;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .personal-project-description {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .project-iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link {
+            color: #f97316;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-link:hover {
+            opacity: 0.7;
+        }
+
+        .divider {
+            color: #cbd5e1;
+            margin: 0 0.25rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid #000;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #f97316;
+            color: #fff;
+            border-color: #f97316;
+        }
+
+        .btn-primary:hover {
+            background-color: #ea580c;
+            border-color: #ea580c;
+        }
+
+        .btn-secondary {
+            background-color: #fff;
+            color: #64748b;
+            border-color: #cbd5e1;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding-top: 60px;
+            }
+
+            nav {
+                padding: 0.75rem 1rem;
+            }
+
+            .nav-logo {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+
+            .container {
+                padding: 60px 20px;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .greeting {
+                font-size: 1.75rem;
+            }
+
+            .title, .bio {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 10px 24px;
+                font-size: 0.9rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 601px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">Travis Johnson</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" id="home">
+        <div class="intro-content">
+            <div class="profile-section">
+                <img src="headshot.jpg" alt="Travis Johnson" class="profile-image">
+                <div class="profile-text">
+                    <h1 class="greeting">Hello</h1>
+                    <p class="title">I'm a product manager at Group1001.</p>
+                </div>
+            </div>
+            <p class="bio">
+                I'm focused on discovering what users value and delivering outcomes that drive business growth. Prior to Group1001, I spent several years at Airship leading product efforts for experimentation and partner integrations.
+            </p>
+            <div class="cta-buttons" id="contact">
+                <a href="mailto:travis@travis.tj" class="btn btn-primary">Contact Me</a>
+                <span class="divider">|</span>
+                <a href="https://www.linkedin.com/in/travis-johnson-pdx/" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="skills-section" id="skills">
+            <h2 class="section-title">What I Do</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <h3 class="skill-title">Product Strategy & Discovery</h3>
+                    <p class="skill-description">Continuous customer interviews, opportunity mapping, and outcome-driven roadmaps that align teams to North Star metrics.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3 class="skill-title">Agile Development</h3>
+                    <p class="skill-description">SAFe Agile and Scrum expertise. Ship iteratively, validate quickly, and adapt based on real user feedback.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <h3 class="skill-title">AI Product Development</h3>
+                    <p class="skill-description">Built AI-powered document classification systems. Leverage AI tools daily for code generation, documentation, and communication refinement.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🤝</div>
+                    <h3 class="skill-title">Stakeholder Management</h3>
+                    <p class="skill-description">Bridge technical teams and business leaders. Translate complex requirements into clear communication for all audiences.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⭐</div>
+                    <h3 class="skill-title">Client Success & Delivery</h3>
+                    <p class="skill-description">Manage external client relationships end-to-end. Weekly working sessions, requirements intake, and precise documentation to ensure successful project delivery.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚙️</div>
+                    <h3 class="skill-title">Technical Fluency</h3>
+                    <p class="skill-description">Deep understanding of APIs, system integrations, and platform architecture. Speak engineering's language.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3 class="skill-title">Metrics & Analytics</h3>
+                    <p class="skill-description">Data-driven decision making. Track KPIs, measure outcomes, and evangelize metrics to drive product performance.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🚀</div>
+                    <h3 class="skill-title">Go-to-Market Excellence</h3>
+                    <p class="skill-description">Enable sales teams, conduct technical training, and drive product adoption through strategic launches.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="projects-section" id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="partner-integration.png" alt="Partner Integration Configuration Portal" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Partner Integration Configuration Portal</h3>
+                        <p class="project-date">2019 - 2022</p>
+                        <p class="project-description">Built a no-code integration wizard that transformed how 20+ technology partners connected with Airship's marketing platform. The automated configuration tool guided users through setup in just a few clicks, reducing failed API calls, enabling web tracking of integration usage, and increasing adoption of core features.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="self-service-renewals.png" alt="Self-Service Annuity Renewals Automation" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Self-Service Annuity Renewals Automation</h3>
+                        <p class="project-date">2024</p>
+                        <p class="project-description">Launched an end-to-end automated renewal system for annuity contracts that transformed a manual, error-prone process into a seamless self-service experience. The solution freed Operations from 50+ hours monthly of manual work, improved customer satisfaction scores, and positioned the business to handle exponential growth from 200+ to 2,000+ renewals without proportional headcount increases.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="personal-projects-section">
+            <h2 class="section-title">Personal Projects</h2>
+            <div class="personal-project-card">
+                <div class="personal-project-header">
+                    <h3 class="personal-project-title">AI-Powered PRD Generator</h3>
+                    <p class="personal-project-tech">Built with React, Vite, Anthropic API, and Vercel</p>
+                    <p class="personal-project-description">
+                        As a Product Manager, writing Product Requirements Documents (PRDs) is essential, but starting from scratch is time-consuming. I built this AI-powered tool to automatically generate PRD drafts from source documents, enabling PMs to spend more time doing discovery and less time on boilerplate documentation. Simply upload reference materials, and the tool creates a structured first draft that you can refine.
+                    </p>
+                </div>
+                <iframe 
+                    src="https://prd-generator-sable.vercel.app"
+                    class="project-iframe"
+                    title="AI PRD Generator">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.modal-close');
+        const projectImages = document.querySelectorAll('.project-image');
+
+        projectImages.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.classList.add('active');
+                modalImg.src = this.src;
+            });
+        });
+
+        closeBtn.addEventListener('click', function() {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
